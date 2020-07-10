@@ -1,6 +1,23 @@
 import React from 'react';
 import Header from './Header';
 import Form from './Form';
+import Buttons from './Buttons';
+
+const tasks = [
+  {
+    id: 1,
+    name: "Dodać interakcję do aplikacji",
+    done: false
+  },
+  {
+    id: 2,
+    name: "Przenieść aplikację do React.js",
+    done: true
+  },
+]
+const directionOfSort = null;
+const isShowingEnabled = true;
+
 function App() {
   return (
     <main>
@@ -14,7 +31,7 @@ function App() {
       <section className="section">
         <div className="section__container">
           <h2 className="section__header">Lista zadań</h2>
-          <div className="section__buttonsContainer js-buttonsContainer"></div>
+          <Buttons directionOfSort={directionOfSort} isShowingEnabled={isShowingEnabled} tasks={tasks} />
         </div>
         <ul className="list js-tasksList"></ul>
       </section>
