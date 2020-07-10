@@ -15,7 +15,9 @@ const Tasks = ({ tasks, isShowingEnabled }) => (
           {done ? <s>{name}</s> : name}
         </p>
         <button className="list__button list__button--remove ">
-          ❌
+          <span role="img" aria-label="Delete">
+            ❌
+          </span>
         </button>
       </li>
     ))}
