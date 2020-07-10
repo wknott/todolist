@@ -5,6 +5,7 @@ import Buttons from "./Buttons";
 import Tasks from "./Tasks";
 import Section from "./Section";
 import Container from "./Container";
+
 const tasks = [
   {
     id: 1,
@@ -30,8 +31,17 @@ function App() {
       />
       <Section
         title={"Lista zadań"}
-        extraHeaderContent={<Buttons directionOfSort={directionOfSort} isShowingEnabled={isShowingEnabled} tasks={tasks} />}
-        sectionBody={<Tasks tasks={tasks} isShowingEnabled={isShowingEnabled} />}
+        extraHeaderContent={
+          <Buttons
+            directionOfSort={directionOfSort}
+            isShowingEnabled={isShowingEnabled}
+            tasks={tasks}
+          />}
+        sectionBody={
+          <Tasks
+            tasks={tasks}
+            isShowingEnabled={isShowingEnabled}
+          />}
       />
     </Container>
   );
