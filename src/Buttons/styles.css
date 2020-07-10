@@ -3,7 +3,7 @@
   border: none;
   background-color: transparent;
   color: hsl(180, 100%, 25%);
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .buttons__button:hover {

@@ -30,7 +30,7 @@
   border: none;
   background-color: white;
   color: hsl(180, 100%, 25%);
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .section__button:hover {

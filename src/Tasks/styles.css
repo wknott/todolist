@@ -21,7 +21,7 @@
   color: white;
   height: 35px;
   flex: 0 0 35px;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .list__button--done {
