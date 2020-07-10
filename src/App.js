@@ -17,7 +17,7 @@ const tasks = [
     name: "Przenieść aplikację do React.js",
     done: true
   },
-]
+];
 const directionOfSort = null;
 const isShowingEnabled = true;
 
@@ -36,12 +36,14 @@ function App() {
             directionOfSort={directionOfSort}
             isShowingEnabled={isShowingEnabled}
             tasks={tasks}
-          />}
+          />
+        }
         sectionBody={
           <Tasks
             tasks={tasks}
             isShowingEnabled={isShowingEnabled}
-          />}
+          />
+        }
       />
     </Container>
   );
