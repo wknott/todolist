@@ -1,9 +1,10 @@
-import React from 'react';
-import Header from './Header';
-import Form from './Form';
-import Buttons from './Buttons';
-import Tasks from './Tasks';
-import Section from './Section';
+import React from "react";
+import Header from "./Header";
+import Form from "./Form";
+import Buttons from "./Buttons";
+import Tasks from "./Tasks";
+import Section from "./Section";
+import Container from "./Container";
 const tasks = [
   {
     id: 1,
@@ -21,7 +22,7 @@ const isShowingEnabled = true;
 
 function App() {
   return (
-    <main>
+    <Container>
       <Header title="Lista zadań" />
       <Section
         title={"Dodaj nowe zadanie"}
@@ -32,7 +33,7 @@ function App() {
         extraHeaderContent={<Buttons directionOfSort={directionOfSort} isShowingEnabled={isShowingEnabled} tasks={tasks} />}
         sectionBody={<Tasks tasks={tasks} isShowingEnabled={isShowingEnabled} />}
       />
-    </main>
+    </Container>
   );
 }
 
