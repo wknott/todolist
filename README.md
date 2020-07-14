@@ -20,7 +20,6 @@
 
 A simple application that allows you to manage your task list. The app enable add, sort, toggle done and delete task in your list.
 
-
 ## Screenshot
 
 Soon...
@@ -29,7 +28,7 @@ Soon...
 
 - HTML
 - CSS (BEM Methodology)
-- JS (ES6)
+- JS (ES6+)
 - React.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -45,11 +44,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
