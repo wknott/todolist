@@ -19,7 +19,7 @@
 }
 
 @media (max-width: 767px) {
-  .buttons__container {
+  .buttons {
     display: grid;
     grid-gap: 20px;
   }

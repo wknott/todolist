@@ -14,16 +14,16 @@
   justify-content: space-between;
 }
 
-.section__title {
-  font-size: 20px;
-  margin: 0;
-}
-
 @media (max-width: 767px) {
   .section__header {
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
+}
+
+.section__title {
+  font-size: 20px;
+  margin: 0;
 }
 
 .section__button {
@@ -44,11 +44,4 @@
 
 .section__button:disabled {
   color: #ddd;
-}
-
-@media (max-width: 767px) {
-  .section__buttonsContainer {
-    display: grid;
-    grid-gap: 20px;
-  }
 }

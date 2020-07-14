@@ -11,9 +11,7 @@ const Tasks = ({ tasks, hideDoneTasks }) => (
         className={`list__item${hideDoneTasks && done ? " list__item--hide" : ""}`}
       >
         <button className="list__button list__button--done">
-          {done
-            ? <img height={15} src={doneImage} alt="done" />
-            : ""}
+          {done && <img height={15} src={doneImage} alt="done" />}
         </button>
         <p className="list__paragraph">
           {done ? <s>{name}</s> : name}

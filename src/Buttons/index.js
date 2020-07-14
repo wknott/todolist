@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 
 const Buttons = ({ directionOfSort, hideDoneTasks, tasks }) => (
-  <div className="buttons__container">
+  <div className="buttons">
     {tasks.length > 0 &&
       <>
         <button className="buttons__button">

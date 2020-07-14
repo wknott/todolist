@@ -26,11 +26,11 @@ function App() {
     <Container>
       <Header title="Lista zadań" />
       <Section
-        title={"Dodaj nowe zadanie"}
+        title="Dodaj nowe zadanie"
         sectionBody={<Form />}
       />
       <Section
-        title={"Lista zadań"}
+        title="Lista zadań"
         extraHeaderContent={
           <Buttons
             directionOfSort={directionOfSort}
