@@ -19,7 +19,7 @@ const tasks = [
   },
 ];
 const directionOfSort = null;
-const isShowingEnabled = true;
+const hideDoneTasks = false;
 
 function App() {
   return (
@@ -34,14 +34,14 @@ function App() {
         extraHeaderContent={
           <Buttons
             directionOfSort={directionOfSort}
-            isShowingEnabled={isShowingEnabled}
+            hideDoneTasks={hideDoneTasks}
             tasks={tasks}
           />
         }
         sectionBody={
           <Tasks
             tasks={tasks}
-            isShowingEnabled={isShowingEnabled}
+            hideDoneTasks={hideDoneTasks}
           />
         }
       />

@@ -3,12 +3,12 @@ import "./styles.css";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 
-const Tasks = ({ tasks, isShowingEnabled }) => (
+const Tasks = ({ tasks, hideDoneTasks }) => (
   <ul className="list">
     {tasks.map(({ id, name, done }) => (
       <li
         key={id}
-        className={`list__item ${isShowingEnabled || !done ? "" : "list__item--hide"}`}
+        className={`list__item${hideDoneTasks && done ? " list__item--hide" : ""}`}
       >
         <button className="list__button list__button--done">
           {done

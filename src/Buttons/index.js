@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-const Buttons = ({ directionOfSort, isShowingEnabled, tasks }) => (
+const Buttons = ({ directionOfSort, hideDoneTasks, tasks }) => (
   <div className="buttons__container">
     {tasks.length > 0 &&
       <>
@@ -9,7 +9,7 @@ const Buttons = ({ directionOfSort, isShowingEnabled, tasks }) => (
           Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↓" : "↑"}
         </button>
         <button className="buttons__button">
-          {isShowingEnabled ? "Ukryj ukończone" : "Pokaż ukończone"}
+          {hideDoneTasks ? "Pokaż ukończone" : "Ukryj ukończone"}
         </button>
         <button className="buttons__button" disabled={tasks.every(({ done }) => done)}>
           Ukończ wszystkie
