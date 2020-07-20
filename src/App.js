@@ -7,13 +7,13 @@ import Section from "./Section";
 import Container from "./Container";
 
 const directionOfSort = null;
-const hideDoneTasks = false;
 
 const App = () => {
   const [tasks, setTasks] = useState([
     { id: 1, name: "Dodać interakcję do aplikacji", done: false },
     { id: 2, name: "Przenieść aplikację do React.js", done: true },
   ]);
+  const [hideDoneTasks, setHideDoneTasks] = useState(false);
 
   const addTask = (name) => {
     setTasks(tasks => [
@@ -28,7 +28,7 @@ const App = () => {
 
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id))
-  }
+  };
 
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
@@ -37,7 +37,18 @@ const App = () => {
         done: !task.done
       }) : (task);
     }))
-  }
+  };
+
+  const togglehHideDoneTasks = () => {
+    setHideDoneTasks(!hideDoneTasks);
+  };
+
+  const markAllTasksAsDone = () => {
+    setTasks(tasks => tasks.map(task => ({
+      ...task,
+      done: true,
+    })));
+  };
 
   return (
     <Container>
@@ -53,6 +64,8 @@ const App = () => {
             directionOfSort={directionOfSort}
             hideDoneTasks={hideDoneTasks}
             tasks={tasks}
+            togglehHideDoneTasks={togglehHideDoneTasks}
+            markAllTasksAsDone={markAllTasksAsDone}
           />
         }
         sectionBody={
