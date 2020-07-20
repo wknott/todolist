@@ -26,6 +26,10 @@ const App = () => {
     ]);
   };
 
+  const removeTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id))
+  }
+
   return (
     <Container>
       <Header title="Lista zadań" />
@@ -46,6 +50,7 @@ const App = () => {
           <Tasks
             tasks={tasks}
             hideDoneTasks={hideDoneTasks}
+            removeTask={removeTask}
           />
         }
       />

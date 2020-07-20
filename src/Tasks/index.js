@@ -3,7 +3,7 @@ import "./styles.css";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 
-const Tasks = ({ tasks, hideDoneTasks }) => (
+const Tasks = ({ tasks, hideDoneTasks, removeTask }) => (
   <ul className="list">
     {tasks.map(({ id, name, done }) => (
       <li
@@ -16,7 +16,10 @@ const Tasks = ({ tasks, hideDoneTasks }) => (
         <p className="list__paragraph">
           {done ? <s>{name}</s> : name}
         </p>
-        <button className="list__button list__button--remove ">
+        <button
+          className="list__button list__button--remove "
+          onClick={() => removeTask(id)}
+        >
           <img height={15} src={deleteImage} alt="delete" />
         </button>
       </li>
