@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Form from "./Form";
 import Buttons from "./Buttons";
@@ -6,28 +6,32 @@ import Tasks from "./Tasks";
 import Section from "./Section";
 import Container from "./Container";
 
-const tasks = [
-  {
-    id: 1,
-    name: "Dodać interakcję do aplikacji",
-    done: false
-  },
-  {
-    id: 2,
-    name: "Przenieść aplikację do React.js",
-    done: true
-  },
-];
 const directionOfSort = null;
 const hideDoneTasks = false;
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([
+    { id: 1, name: "Dodać interakcję do aplikacji", done: false },
+    { id: 2, name: "Przenieść aplikację do React.js", done: true },
+  ]);
+
+  const addTask = (name) => {
+    setTasks(tasks => [
+      ...tasks,
+      {
+        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+        name,
+        done: false,
+      }
+    ]);
+  };
+
   return (
     <Container>
       <Header title="Lista zadań" />
       <Section
         title="Dodaj nowe zadanie"
-        sectionBody={<Form />}
+        sectionBody={<Form addTask={addTask} />}
       />
       <Section
         title="Lista zadań"
