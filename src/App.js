@@ -6,14 +6,13 @@ import Tasks from "./Tasks";
 import Section from "./Section";
 import Container from "./Container";
 
-const directionOfSort = null;
-
 const App = () => {
   const [tasks, setTasks] = useState([
     { id: 1, name: "Dodać interakcję do aplikacji", done: false },
     { id: 2, name: "Przenieść aplikację do React.js", done: true },
   ]);
   const [hideDoneTasks, setHideDoneTasks] = useState(false);
+  const [directionOfSort, setDirectionOfSort] = useState(null);
 
   const addTask = (name) => {
     setTasks(tasks => [
@@ -50,6 +49,13 @@ const App = () => {
     })));
   };
 
+  const sortTasks = () => {
+    setDirectionOfSort(directionOfSort === "asc" ? "desc" : "asc");
+    setTasks(tasks => tasks.sort(
+      (a, b) => directionOfSort === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+    ));
+  };
+
   return (
     <Container>
       <Header title="Lista zadań" />
@@ -66,6 +72,7 @@ const App = () => {
             tasks={tasks}
             togglehHideDoneTasks={togglehHideDoneTasks}
             markAllTasksAsDone={markAllTasksAsDone}
+            sortTasks={sortTasks}
           />
         }
         sectionBody={

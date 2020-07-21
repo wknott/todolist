@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.css";
 
-const Buttons = ({ directionOfSort, hideDoneTasks, tasks, togglehHideDoneTasks, markAllTasksAsDone }) => (
+const Buttons = ({ directionOfSort, hideDoneTasks, tasks, togglehHideDoneTasks, markAllTasksAsDone, sortTasks }) => (
   <div className="buttons">
     {tasks.length > 0 &&
       <>
-        <button className="buttons__button">
+        <button onClick={sortTasks} className="buttons__button">
           Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↓" : "↑"}
         </button>
         <button onClick={togglehHideDoneTasks} className="buttons__button">
