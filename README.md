@@ -22,7 +22,7 @@ A simple application that allows you to manage your task list. The app enable ad
 
 ## Screenshot
 
-Soon...
+![Screenshot](screenshot.gif)
 
 ## Technologies
 
