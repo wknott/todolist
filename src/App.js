@@ -8,17 +8,19 @@ import Container from "./Container";
 
 const App = () => {
   const [tasks, setTasks] = useState([
-    { id: 1, name: "Dodać interakcję do aplikacji", done: false },
+    { id: 1, name: "Zaprojektować logo", done: false },
     { id: 2, name: "Przenieść aplikację do React.js", done: true },
   ]);
   const [hideDoneTasks, setHideDoneTasks] = useState(false);
   const [directionOfSort, setDirectionOfSort] = useState(null);
 
+  const getHighestId = () => Math.max(...tasks.map(({ id }) => id));
+
   const addTask = (name) => {
     setTasks(tasks => [
       ...tasks,
       {
-        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+        id: tasks.length ? getHighestId() + 1 : 1,
         name,
         done: false,
       }
