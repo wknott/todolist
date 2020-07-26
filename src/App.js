@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Form from "./Form";
 import Buttons from "./Buttons";
@@ -7,10 +7,7 @@ import Section from "./Section";
 import Container from "./Container";
 
 const App = () => {
-  const [tasks, setTasks] = useState([
-    { id: 1, name: "Zaprojektować logo", done: false },
-    { id: 2, name: "Przenieść aplikację do React.js", done: true },
-  ]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
   const [hideDoneTasks, setHideDoneTasks] = useState(false);
   const [directionOfSort, setDirectionOfSort] = useState(null);
 
@@ -28,7 +25,7 @@ const App = () => {
   };
 
   const removeTask = (id) => {
-    setTasks(tasks => tasks.filter(task => task.id !== id))
+    setTasks(tasks => tasks.filter(task => task.id !== id));
   };
 
   const toggleTaskDone = (id) => {
@@ -37,7 +34,7 @@ const App = () => {
         ...task,
         done: !task.done
       }) : (task);
-    }))
+    }));
   };
 
   const togglehHideDoneTasks = () => {
@@ -53,10 +50,14 @@ const App = () => {
 
   const sortTasks = () => {
     setDirectionOfSort(directionOfSort === "asc" ? "desc" : "asc");
-    setTasks(tasks => tasks.sort(
+    setTasks(tasks => [...tasks].sort(
       (a, b) => directionOfSort === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
     ));
   };
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
 
   return (
     <Container>
