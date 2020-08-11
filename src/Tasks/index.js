@@ -1,33 +1,27 @@
 import React from "react";
-import "./styles.css";
+import { TasksList, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 
 const Tasks = ({ tasks, hideDoneTasks, removeTask, toggleTaskDone }) => (
-  <ul className="list">
+  <TasksList>
     {tasks.map(({ id, name, done }) => (
-      <li
+      <Item
         key={id}
-        className={`list__item${hideDoneTasks && done ? " list__item--hide" : ""}`}
+        hide={hideDoneTasks && done}
       >
-        <button
-          className="list__button list__button--done"
-          onClick={() => toggleTaskDone(id)}
-        >
+        <ToggleDoneButton onClick={() => toggleTaskDone(id)}>
           {done && <img height={15} src={doneImage} alt="done" />}
-        </button>
-        <p className="list__paragraph">
+        </ToggleDoneButton>
+        <Content>
           {done ? <s>{name}</s> : name}
-        </p>
-        <button
-          className="list__button list__button--remove "
-          onClick={() => removeTask(id)}
-        >
+        </Content>
+        <DeleteButton onClick={() => removeTask(id)}>
           <img height={15} src={deleteImage} alt="delete" />
-        </button>
-      </li>
+        </DeleteButton>
+      </Item>
     ))}
-  </ul >
+  </TasksList>
 )
 
 export default Tasks;
