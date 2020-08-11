@@ -1,26 +1,25 @@
 import React from "react";
-import "./styles.css";
+import { ButtonsContainer, Button } from "./styled";
 
 const Buttons = ({ directionOfSort, hideDoneTasks, tasks, togglehHideDoneTasks, markAllTasksAsDone, sortTasks }) => (
-  <div className="buttons">
+  <ButtonsContainer>
     {tasks.length > 0 &&
       <>
-        <button onClick={sortTasks} className="buttons__button">
+        <Button onClick={sortTasks}>
           Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↓" : "↑"}
-        </button>
-        <button onClick={togglehHideDoneTasks} className="buttons__button">
+        </Button>
+        <Button onClick={togglehHideDoneTasks}>
           {hideDoneTasks ? "Pokaż ukończone" : "Ukryj ukończone"}
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={markAllTasksAsDone}
-          className="buttons__button"
           disabled={tasks.every(({ done }) => done)}
         >
           Ukończ wszystkie
-        </button>
+        </Button>
       </>
     }
-  </div>
+  </ButtonsContainer>
 )
 
 export default Buttons;
