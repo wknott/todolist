@@ -8,7 +8,6 @@
 - [Technologies](#technologies)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)
-  - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
 
@@ -18,7 +17,7 @@
 
 ## Description
 
-A simple application that allows you to manage your task list. The app enable add, sort, toggle done and delete task in your list.
+A simple application that allows you to manage your task list. The app enable add, sort, toggle done and delete task in your list. Tasks are stored in the localstorage of the browser.
 
 ## Screenshot
 
@@ -27,7 +26,7 @@ A simple application that allows you to manage your task list. The app enable ad
 ## Technologies
 
 - HTML
-- CSS (BEM Methodology)
+- CSS (Styled components)
 - JS (ES6+)
 - React.js
 
