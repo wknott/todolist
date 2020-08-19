@@ -8,7 +8,7 @@ export const TasksList = styled.ul`
 
 export const Item = styled.li`
   padding: 5px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   display: flex;
   align-items: center;
   
@@ -20,7 +20,6 @@ export const Item = styled.li`
 const Button = styled.button`
   border: none;
   padding: 10px;
-  color: white;
   height: 35px;
   flex: 0 0 35px;
   transition: 0.5s;

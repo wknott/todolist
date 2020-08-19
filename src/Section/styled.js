@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledSection = styled.section`
   background-color: white;
   margin-bottom: 10px;
-  box-shadow: 0px 0px 2px 2px #ddd;
+  box-shadow: 0px 0px 2px 2px solid ${({ theme }) => theme.colors.secondary};
 `;
 
 export const SectionHeader = styled.header`
@@ -11,11 +11,11 @@ export const SectionHeader = styled.header`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 767px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px) {
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
