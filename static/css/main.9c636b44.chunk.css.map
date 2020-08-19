@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,qBACF,CAEA,iBACE,kBACF,CAEA,KACE,6BAA+B,CAC/B,qBACF","file":"main.9c636b44.chunk.css","sourcesContent":["html {\n  box-sizing: border-box;\n}\n\n*, ::after, ::before {\n  box-sizing: inherit;\n}\n\nbody {\n  font-family: \"Lato\", sans-serif;\n  background-color: #eee;\n}"]}
