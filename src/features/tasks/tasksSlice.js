@@ -32,7 +32,6 @@ const tasksSlice = createSlice({
       }))
     },
     sortTasks: state => {
-      console.log("dudu")
       state.directionOfSort = state.directionOfSort === "asc" ? "desc" : "asc";
       state.tasks = state.tasks.sort(
         (a, b) => state.directionOfSort === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
