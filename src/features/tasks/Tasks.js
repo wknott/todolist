@@ -15,7 +15,6 @@ const Tasks = () => {
   const {
     // tasks,
     directionOfSort,
-    toggleTaskDone,
     sortTasks
   } = useTasks();
 
@@ -36,11 +35,7 @@ const Tasks = () => {
               sortTasks={sortTasks}
             />
           }
-          sectionBody={
-            <TaskList
-              toggleTaskDone={toggleTaskDone}
-            />
-          }
+          sectionBody={<TaskList />}
         />
       </Container>
     </ThemeProvider>

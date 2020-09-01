@@ -3,9 +3,9 @@ import { List, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTasks, removeTask } from "../tasksSlice";
+import { selectTasks, removeTask, toggleTaskDone } from "../tasksSlice";
 
-const TaskList = ({ toggleTaskDone }) => {
+const TaskList = () => {
   const { tasks, hideDoneTasks } = useSelector(selectTasks);
   const dispatch = useDispatch();
 
@@ -16,7 +16,7 @@ const TaskList = ({ toggleTaskDone }) => {
           key={id}
           hide={hideDoneTasks && done}
         >
-          <ToggleDoneButton onClick={() => toggleTaskDone(id)}>
+          <ToggleDoneButton onClick={() => dispatch(toggleTaskDone({ id }))}>
             {done && <img height={15} src={doneImage} alt="done" />}
           </ToggleDoneButton>
           <Content>
