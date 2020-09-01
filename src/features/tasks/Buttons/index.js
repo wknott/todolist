@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ButtonsContainer, Button } from "./styled";
-import { selectTasks, toggleHideDoneTasks, markAllTasksAsDone } from "../tasksSlice";
+import { selectTasks, toggleHideDoneTasks, markAllTasksAsDone, sortTasks } from "../tasksSlice";
 
-const Buttons = ({ directionOfSort, sortTasks }) => {
-  const { tasks, hideDoneTasks } = useSelector(selectTasks);
+const Buttons = () => {
+  const { tasks, hideDoneTasks, directionOfSort } = useSelector(selectTasks);
   const dispatch = useDispatch();
 
   return (
     <ButtonsContainer>
       {tasks.length > 0 &&
         <>
-          <Button onClick={sortTasks}>
+          <Button onClick={() => dispatch(sortTasks())}>
             Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↓" : "↑"}
           </Button>
           <Button onClick={() => dispatch(toggleHideDoneTasks())}>

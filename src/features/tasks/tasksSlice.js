@@ -5,6 +5,7 @@ const tasksSlice = createSlice({
   initialState: {
     tasks: [],
     hideDoneTasks: false,
+    directionOfSort: null,
   },
   reducers: {
     addTask: ({ tasks }, { payload }) => {
@@ -30,6 +31,13 @@ const tasksSlice = createSlice({
         done: true,
       }))
     },
+    sortTasks: state => {
+      console.log("dudu")
+      state.directionOfSort = state.directionOfSort === "asc" ? "desc" : "asc";
+      state.tasks = state.tasks.sort(
+        (a, b) => state.directionOfSort === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+      )
+    },
   }
 });
 
@@ -38,7 +46,8 @@ export const {
   removeTask,
   toggleTaskDone,
   toggleHideDoneTasks,
-  markAllTasksAsDone
+  markAllTasksAsDone,
+  sortTasks
 } = tasksSlice.actions;
 export const selectTasks = state => state.tasks;
 export default tasksSlice.reducer;

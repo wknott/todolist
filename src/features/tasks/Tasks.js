@@ -10,36 +10,23 @@ import { GlobalStyle } from "../../GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "../../theme";
 
-const Tasks = () => {
+const Tasks = () => (
+  <ThemeProvider theme={defaultTheme}>
+    <Container>
+      <GlobalStyle />
+      <Header title="Lista zadań" />
+      <Section
+        title="Dodaj nowe zadanie"
+        sectionBody={<Form />}
+      />
+      <Section
+        title="Lista zadań"
+        extraHeaderContent={<Buttons />}
+        sectionBody={<TaskList />}
+      />
+    </Container>
+  </ThemeProvider>
+);
 
-  const {
-    // tasks,
-    directionOfSort,
-    sortTasks
-  } = useTasks();
-
-  return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container>
-        <GlobalStyle />
-        <Header title="Lista zadań" />
-        <Section
-          title="Dodaj nowe zadanie"
-          sectionBody={<Form />}
-        />
-        <Section
-          title="Lista zadań"
-          extraHeaderContent={
-            <Buttons
-              directionOfSort={directionOfSort}
-              sortTasks={sortTasks}
-            />
-          }
-          sectionBody={<TaskList />}
-        />
-      </Container>
-    </ThemeProvider>
-  );
-}
 
 export default Tasks;
