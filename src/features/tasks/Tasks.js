@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import Header from "../../common/Header";
 import Form from "./Form";
 import Buttons from "./Buttons";
@@ -9,15 +10,13 @@ import { useTasks } from "../../useTasks";
 import { GlobalStyle } from "../../GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme } from "../../theme";
-const Tasks = () => {
-  const [hideDoneTasks, setHideDoneTasks] = useState(false);
+import { selectTasks } from "./tasksSlice";
 
-  const togglehHideDoneTasks = () => {
-    setHideDoneTasks(!hideDoneTasks);
-  };
+const Tasks = () => {
+  const { tasks } = useSelector(selectTasks);
 
   const {
-    tasks,
+    // tasks,
     directionOfSort,
     addTask,
     removeTask,
@@ -40,9 +39,7 @@ const Tasks = () => {
           extraHeaderContent={
             <Buttons
               directionOfSort={directionOfSort}
-              hideDoneTasks={hideDoneTasks}
               tasks={tasks}
-              togglehHideDoneTasks={togglehHideDoneTasks}
               markAllTasksAsDone={markAllTasksAsDone}
               sortTasks={sortTasks}
             />
@@ -50,7 +47,6 @@ const Tasks = () => {
           sectionBody={
             <TaskList
               tasks={tasks}
-              hideDoneTasks={hideDoneTasks}
               removeTask={removeTask}
               toggleTaskDone={toggleTaskDone}
             />

@@ -1,10 +1,14 @@
 import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 import { StyledForm, Input, Button } from "./styled";
+import { addTask } from "../tasksSlice";
 
-const Form = ({ addTask }) => {
+const Form = () => {
   const [newTaskName, setNewTaskName] = useState("");
   const inputRef = useRef(null);
 
+  const dispatch = useDispatch();
   const focusInput = () => {
     inputRef.current.focus();
   }
@@ -13,7 +17,11 @@ const Form = ({ addTask }) => {
     event.preventDefault();
     const nameWithoutWhitespace = newTaskName.trim();
     if (nameWithoutWhitespace) {
-      addTask(nameWithoutWhitespace);
+      dispatch(addTask({
+        name: nameWithoutWhitespace,
+        done: false,
+        id: nanoid(),
+      }));
       setNewTaskName("");
     }
     focusInput();
