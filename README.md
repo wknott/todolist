@@ -27,8 +27,11 @@ A simple application that allows you to manage your task list. The app enable ad
 
 - HTML
 - CSS (Styled components)
-- JS (ES6+)
+- JavaScript (ES6+)
 - React
+- create-react-app
+- Styled components
+- Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
