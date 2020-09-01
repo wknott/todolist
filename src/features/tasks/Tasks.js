@@ -21,7 +21,6 @@ const Tasks = () => {
     addTask,
     removeTask,
     toggleTaskDone,
-    markAllTasksAsDone,
     sortTasks
   } = useTasks();
 
@@ -40,7 +39,6 @@ const Tasks = () => {
             <Buttons
               directionOfSort={directionOfSort}
               tasks={tasks}
-              markAllTasksAsDone={markAllTasksAsDone}
               sortTasks={sortTasks}
             />
           }

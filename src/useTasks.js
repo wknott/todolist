@@ -29,12 +29,6 @@ export const useTasks = () => {
     }));
   };
 
-  const markAllTasksAsDone = () => {
-    setTasks(tasks => tasks.map(task => ({
-      ...task,
-      done: true,
-    })));
-  };
 
   const sortTasks = () => {
     setDirectionOfSort(directionOfSort === "asc" ? "desc" : "asc");
@@ -53,7 +47,6 @@ export const useTasks = () => {
     addTask,
     removeTask,
     toggleTaskDone,
-    markAllTasksAsDone,
     sortTasks
   };
 };
