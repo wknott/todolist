@@ -1,10 +1,10 @@
 import React from "react";
-import { TasksList, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
+import { List, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 
-const Tasks = ({ tasks, hideDoneTasks, removeTask, toggleTaskDone }) => (
-  <TasksList>
+const TaskList = ({ tasks, hideDoneTasks, removeTask, toggleTaskDone }) => (
+  <List>
     {tasks.map(({ id, name, done }) => (
       <Item
         key={id}
@@ -21,7 +21,7 @@ const Tasks = ({ tasks, hideDoneTasks, removeTask, toggleTaskDone }) => (
         </DeleteButton>
       </Item>
     ))}
-  </TasksList>
+  </List>
 )
 
-export default Tasks;
+export default TaskList;
