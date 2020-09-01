@@ -2,11 +2,12 @@ import React from "react";
 import { List, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
-import { useSelector } from "react-redux";
-import { selectTasks } from "../tasksSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { selectTasks, removeTask } from "../tasksSlice";
 
-const TaskList = ({ removeTask, toggleTaskDone }) => {
+const TaskList = ({ toggleTaskDone }) => {
   const { tasks, hideDoneTasks } = useSelector(selectTasks);
+  const dispatch = useDispatch();
 
   return (
     <List>
@@ -21,7 +22,7 @@ const TaskList = ({ removeTask, toggleTaskDone }) => {
           <Content>
             {done ? <s>{name}</s> : name}
           </Content>
-          <DeleteButton onClick={() => removeTask(id)}>
+          <DeleteButton onClick={() => dispatch(removeTask({ id }))}>
             <img height={15} src={deleteImage} alt="delete" />
           </DeleteButton>
         </Item>
