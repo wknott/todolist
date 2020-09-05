@@ -12,7 +12,7 @@ const Buttons = () => {
       {tasks.length > 0 &&
         <>
           <Button onClick={() => dispatch(sortTasks())}>
-            Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↓" : "↑"}
+            Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↑" : "↓"}
           </Button>
           <Button onClick={() => dispatch(toggleHideDoneTasks())}>
             {hideDoneTasks ? "Pokaż ukończone" : "Ukryj ukończone"}
