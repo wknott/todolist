@@ -23,13 +23,10 @@ const tasksSlice = createSlice({
       state.hideDoneTasks = !state.hideDoneTasks;
     },
     markAllTasksAsDone: state => {
-      state.tasks.forEach(task => task.done = true)
+      state.tasks.forEach(task => task.done = true);
     },
-    sortTasks: state => {
+    toggleSortDirection: state => {
       state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
-      state.tasks = state.tasks.sort(
-        (a, b) => state.sortDirection === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
-      )
     },
   }
 });
@@ -40,7 +37,7 @@ export const {
   toggleTaskDone,
   toggleHideDoneTasks,
   markAllTasksAsDone,
-  sortTasks
+  toggleSortDirection
 } = tasksSlice.actions;
 export const selectTasks = state => state.tasks;
 export default tasksSlice.reducer;

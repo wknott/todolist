@@ -6,12 +6,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectTasks, removeTask, toggleTaskDone } from "../tasksSlice";
 
 const TaskList = () => {
-  const { tasks, hideDoneTasks } = useSelector(selectTasks);
+  const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasks);
   const dispatch = useDispatch();
+  const sortedTasks = [...tasks].sort(
+    (a, b) => sortDirection === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+  );
 
   return (
     <List>
-      {tasks.map(({ id, name, done }) => (
+      {sortedTasks.map(({ id, name, done }) => (
         <Item
           key={id}
           hide={hideDoneTasks && done}
