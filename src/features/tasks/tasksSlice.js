@@ -5,7 +5,7 @@ const tasksSlice = createSlice({
   initialState: {
     tasks: JSON.parse(localStorage.getItem("tasks")) || [],
     hideDoneTasks: false,
-    directionOfSort: null,
+    sortDirection: null,
   },
   reducers: {
     addTask: ({ tasks }, { payload }) => {
@@ -32,9 +32,9 @@ const tasksSlice = createSlice({
       }))
     },
     sortTasks: state => {
-      state.directionOfSort = state.directionOfSort === "asc" ? "desc" : "asc";
+      state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
       state.tasks = state.tasks.sort(
-        (a, b) => state.directionOfSort === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+        (a, b) => state.sortDirection === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
       )
     },
   }

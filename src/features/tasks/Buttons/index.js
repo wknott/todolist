@@ -4,7 +4,7 @@ import { ButtonsContainer, Button } from "./styled";
 import { selectTasks, toggleHideDoneTasks, markAllTasksAsDone, sortTasks } from "../tasksSlice";
 
 const Buttons = () => {
-  const { tasks, hideDoneTasks, directionOfSort } = useSelector(selectTasks);
+  const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasks);
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +12,7 @@ const Buttons = () => {
       {tasks.length > 0 &&
         <>
           <Button onClick={() => dispatch(sortTasks())}>
-            Posortuj zadania {directionOfSort === null ? "" : directionOfSort === "asc" ? "↑" : "↓"}
+            Posortuj zadania {sortDirection === null ? "" : sortDirection === "asc" ? "↑" : "↓"}
           </Button>
           <Button onClick={() => dispatch(toggleHideDoneTasks())}>
             {hideDoneTasks ? "Pokaż ukończone" : "Ukryj ukończone"}
