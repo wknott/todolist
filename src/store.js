@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tasksReducer from "./features/tasks/tasksSlice";
+import tasksReducer, { selectTasks } from "./features/tasks/tasksSlice";
 
 const store = configureStore({
   reducer: {
@@ -8,6 +8,8 @@ const store = configureStore({
 });
 
 store.subscribe(() => {
-  localStorage.setItem("tasks", JSON.stringify(store.getState().tasks.tasks))
+  const { tasks } = selectTasks(store.getState());
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 })
+
 export default store;
