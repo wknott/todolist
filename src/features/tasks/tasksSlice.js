@@ -12,24 +12,18 @@ const tasksSlice = createSlice({
       tasks.push(payload);
     },
     removeTask: (state, { payload }) => {
-      state.tasks = state.tasks.filter(task => task.id !== payload.id)
+      const removeTaskIndex = state.tasks.findIndex(task => task.id === payload);
+      state.tasks.splice(removeTaskIndex, 1);
     },
     toggleTaskDone: (state, { payload }) => {
-      state.tasks = state.tasks.map(task => {
-        return task.id === payload.id ? ({
-          ...task,
-          done: !task.done
-        }) : (task);
-      })
+      const indexToggleTaskDone = state.tasks.findIndex(task => task.id === payload);
+      state.tasks[indexToggleTaskDone].done = !state.tasks[indexToggleTaskDone].done;
     },
     toggleHideDoneTasks: state => {
       state.hideDoneTasks = !state.hideDoneTasks;
     },
     markAllTasksAsDone: state => {
-      state.tasks = state.tasks.map(task => ({
-        ...task,
-        done: true,
-      }))
+      state.tasks.forEach(task => task.done = true)
     },
     sortTasks: state => {
       state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
