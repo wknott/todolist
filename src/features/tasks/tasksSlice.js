@@ -6,6 +6,7 @@ const tasksSlice = createSlice({
     tasks: JSON.parse(localStorage.getItem("tasks")) || [],
     hideDoneTasks: false,
     sortDirection: null,
+    loading: false,
   },
   reducers: {
     addTask: ({ tasks }, { payload: task }) => {
@@ -17,7 +18,7 @@ const tasksSlice = createSlice({
     },
     toggleTaskDone: ({ tasks }, { payload: taskId }) => {
       const indexToggleTaskDone = tasks.findIndex(task => task.id === taskId);
-      tasks[indexToggleTaskDone].done = !state.tasks[indexToggleTaskDone].done;
+      tasks[indexToggleTaskDone].done = !tasks[indexToggleTaskDone].done;
     },
     toggleHideDoneTasks: state => {
       state.hideDoneTasks = !state.hideDoneTasks;
@@ -28,6 +29,13 @@ const tasksSlice = createSlice({
     toggleSortDirection: state => {
       state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
     },
+    fetchExampleTasks: () => { },
+    setTasks: (state, { payload: tasks }) => {
+      state.tasks = tasks;
+    },
+    setLoading: (state, { payload: isLoading }) => {
+      state.loading = isLoading;
+    }
   }
 });
 
@@ -37,7 +45,14 @@ export const {
   toggleTaskDone,
   toggleHideDoneTasks,
   markAllTasksAsDone,
-  toggleSortDirection
+  toggleSortDirection,
+  fetchExampleTasks,
+  setTasks,
+  setLoading,
 } = tasksSlice.actions;
-export const selectTasks = state => state.tasks;
+
+export const selectTasksState = state => state.tasks;
+export const selectTasks = state => selectTasksState(state).tasks;
+export const selectLoading = state => selectTasksState(state).loading;
+
 export default tasksSlice.reducer;
