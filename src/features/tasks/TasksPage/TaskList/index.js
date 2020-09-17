@@ -9,12 +9,12 @@ const TaskList = () => {
   const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasksState);
   const dispatch = useDispatch();
   const sortedTasks = [...tasks].sort(
-    (a, b) => sortDirection === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
+    (a, b) => sortDirection === "asc" ? b.content.localeCompare(a.content) : a.content.localeCompare(b.content)
   );
 
   return (
     <List>
-      {sortedTasks.map(({ id, name, done }) => (
+      {sortedTasks.map(({ id, content, done }) => (
         <Item
           key={id}
           hide={hideDoneTasks && done}
@@ -23,7 +23,7 @@ const TaskList = () => {
             {done && <img height={15} src={doneImage} alt="done" />}
           </ToggleDoneButton>
           <Content done={done}>
-            <StyledLink to={`/zadania/${id}`}>{name}</StyledLink>
+            <StyledLink to={`/zadania/${id}`}>{content}</StyledLink>
           </Content>
           <DeleteButton onClick={() => dispatch(removeTask(id))}>
             <img height={15} src={deleteImage} alt="delete" />

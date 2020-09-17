@@ -1,16 +1,16 @@
 [
   {
-    "name": "Ułóż kostkę Rubika",
+    "content": "Ułóż kostkę Rubika",
     "done": false,
     "id": "V4_RDhkcZrtSZrodhNArT"
   },
   {
-    "name": "Upiecz ciasto",
+    "content": "Upiecz ciasto",
     "done": false,
     "id": "AawzLHdZSVTFB7yed4STV"
   },
   {
-    "name": "Odbierz paczkę z paczkomatu",
+    "content": "Odbierz paczkę z paczkomatu",
     "done": true,
     "id": "oBajM2DwZWkLI0K6RW96q"
   }

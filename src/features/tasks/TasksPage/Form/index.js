@@ -5,7 +5,7 @@ import { StyledForm, Input, Button } from "./styled";
 import { addTask } from "../../tasksSlice";
 
 const Form = () => {
-  const [newTaskName, setNewTaskName] = useState("");
+  const [newTaskContent, setNewTaskContent] = useState("");
   const inputRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -15,14 +15,14 @@ const Form = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const nameWithoutWhitespace = newTaskName.trim();
-    if (nameWithoutWhitespace) {
+    const contentWithoutWhitespace = newTaskContent.trim();
+    if (contentWithoutWhitespace) {
       dispatch(addTask({
-        name: nameWithoutWhitespace,
+        content: contentWithoutWhitespace,
         done: false,
         id: nanoid(),
       }));
-      setNewTaskName("");
+      setNewTaskContent("");
     }
     focusInput();
   }
@@ -30,10 +30,10 @@ const Form = () => {
   return (
     <StyledForm onSubmit={onFormSubmit}>
       <Input
-        value={newTaskName}
+        value={newTaskContent}
         placeholder="Co jest do zrobienia?"
         autoFocus
-        onChange={({ target }) => setNewTaskName(target.value)}
+        onChange={({ target }) => setNewTaskContent(target.value)}
         ref={inputRef}
       />
       <Button>Dodaj zadanie</Button>
