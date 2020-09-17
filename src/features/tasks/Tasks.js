@@ -5,6 +5,7 @@ import Buttons from "./Buttons";
 import TaskList from "./TaskList";
 import Section from "../../common/Section";
 import Container from "../../common/Container";
+import ExampleTasksButton from "./ExampleTasksButton";
 
 
 const Tasks = () => (
@@ -12,6 +13,7 @@ const Tasks = () => (
     <Header title="Lista zadań" />
     <Section
       title="Dodaj nowe zadanie"
+      extraHeaderContent={<ExampleTasksButton />}
       sectionBody={<Form />}
     />
     <Section

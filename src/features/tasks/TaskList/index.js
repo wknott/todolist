@@ -3,10 +3,10 @@ import { List, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTasks, removeTask, toggleTaskDone } from "../tasksSlice";
+import { selectTasksState, removeTask, toggleTaskDone } from "../tasksSlice";
 
 const TaskList = () => {
-  const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasks);
+  const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasksState);
   const dispatch = useDispatch();
   const sortedTasks = [...tasks].sort(
     (a, b) => sortDirection === "asc" ? b.name.localeCompare(a.name) : a.name.localeCompare(b.name)
