@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../../common/Header";
+import Header from "../../../common/Header";
 import Form from "./Form";
 import Buttons from "./Buttons";
 import TaskList from "./TaskList";
-import Section from "../../common/Section";
-import Container from "../../common/Container";
+import Section from "../../../common/Section";
+import Container from "../../../common/Container";
 import ExampleTasksButton from "./ExampleTasksButton";
 
 

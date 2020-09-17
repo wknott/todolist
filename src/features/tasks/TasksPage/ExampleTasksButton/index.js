@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
-import { fetchExampleTasks, selectLoading } from "../tasksSlice";
+import { fetchExampleTasks, selectLoading } from "../../tasksSlice";
 
 const ExampleTasksButton = () => {
   const dispatch = useDispatch();

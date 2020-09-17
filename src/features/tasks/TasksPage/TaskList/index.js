@@ -1,9 +1,9 @@
 import React from "react";
-import { List, Item, ToggleDoneButton, DeleteButton, Content } from "./styled";
+import { useSelector, useDispatch } from "react-redux";
+import { List, Item, ToggleDoneButton, DeleteButton, Content, StyledLink } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { selectTasksState, removeTask, toggleTaskDone } from "../tasksSlice";
+import { selectTasksState, removeTask, toggleTaskDone } from "../../tasksSlice";
 
 const TaskList = () => {
   const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasksState);
@@ -22,8 +22,8 @@ const TaskList = () => {
           <ToggleDoneButton onClick={() => dispatch(toggleTaskDone(id))}>
             {done && <img height={15} src={doneImage} alt="done" />}
           </ToggleDoneButton>
-          <Content>
-            {done ? <s>{name}</s> : name}
+          <Content done={done}>
+            <StyledLink to={`/zadania/${id}`}>{name}</StyledLink>
           </Content>
           <DeleteButton onClick={() => dispatch(removeTask(id))}>
             <img height={15} src={deleteImage} alt="delete" />

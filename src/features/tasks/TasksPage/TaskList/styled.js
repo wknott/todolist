@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const List = styled.ul`
   list-style-type: none;
@@ -53,4 +54,22 @@ export const Content = styled.p`
   padding: 5px 10px;
   margin: 0px;
   flex-grow: 1;
+
+  ${({ done }) => done && css`
+    text-decoration: line-through;
+  `}
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.primary};
+  transition: 0.5s;
+
+  &:hover {
+    filter: brightness(115%);
+  }
+
+  &:active {
+    filter: brightness(130%);
+  }
 `;
