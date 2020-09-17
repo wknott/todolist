@@ -1,0 +1,28 @@
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
+const activeClassName = "link-active";
+
+export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
+  &.${activeClassName} {
+    font-weight: bold;
+  }
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+`;
+
+export const List = styled.ul`
+  text-align: center;
+  margin: 0;
+`;
+
+export const Item = styled.li`
+  list-style-type: none;
+  display: inline-block;
+  padding: 20px 40px;
+`;
+
+export const StyledNav = styled.nav`
+  background-color: ${({ theme }) => theme.colors.primary};
+`;
