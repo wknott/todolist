@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Tasks from "./features/tasks/Tasks";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import Tasks from "./features/tasks/TasksPage";
 import Author from "./features/author/Author";
 import Navigation from "./features/navigation/Navigation";
 
 export default () => (
-  <BrowserRouter>
+  <HashRouter>
     <Navigation />
     <Switch>
       <Route path="/zadania">
@@ -15,5 +15,5 @@ export default () => (
         <Author />
       </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 )
