@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 import Tasks from "./features/tasks/TasksPage";
 import Author from "./features/author/Author";
 import Navigation from "./features/navigation/Navigation";
@@ -13,6 +13,9 @@ export default () => (
       </Route>
       <Route path="/autor">
         <Author />
+      </Route>
+      <Route path="/">
+        <Redirect to="/zadania" />
       </Route>
     </Switch>
   </HashRouter>
