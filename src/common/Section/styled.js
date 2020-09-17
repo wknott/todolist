@@ -25,3 +25,7 @@ export const Title = styled.h2`
   font-size: 20px;
   margin: 0;
 `;
+
+export const SectionBody = styled.div`
+  padding: 20px;
+`;
