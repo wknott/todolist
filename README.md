@@ -17,21 +17,33 @@
 
 ## Description
 
-A simple application that allows you to manage your task list. The app enable add, sort, toggle done and delete task in your list. Tasks are stored in the localstorage of the browser.
+A simple application that allows you to manage your task list. The app enables add, sort, toggle done, filter and delete task in your list. Tasks are stored in the local storage of the browser. The app has navigation with two pages: tasks and about the author. You can also see the page of the task details on click to the task.
 
-## Screenshot
+## Screenshots
 
-![Screenshot](screenshot.gif)
+App pages screenshot:
+![Pages](pages.gif)
+
+Get example tasks screenshot:
+![Example](get-example-tasks.gif)
+
+Tasks filtering:
+![Filtering](task-filtering.gif)
+
+Tasks actions:
+![Actions](task-actions.gif)
 
 ## Technologies
 
 - HTML
-- CSS (Styled components)
+- CSS
 - JavaScript (ES6+)
 - React
 - create-react-app
+- Custom Hooks
 - Styled components
 - Redux
+- Redux-saga
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
