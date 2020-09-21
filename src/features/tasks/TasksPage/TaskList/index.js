@@ -6,6 +6,8 @@ import deleteImage from "./delete.svg";
 import { selectTasksState, removeTask, toggleTaskDone, selectTasksByQuery } from "../../tasksSlice";
 import searchQueryParamName from "../searchQueryParamName";
 import { useQueryParameter } from "../queryParamters";
+import { toTask } from "../../../../routes";
+
 
 const TaskList = () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -29,7 +31,7 @@ const TaskList = () => {
             {done && <img height={15} src={doneImage} alt="done" />}
           </ToggleDoneButton>
           <Content done={done}>
-            <StyledLink to={`/zadania/${id}`}>{content}</StyledLink>
+            <StyledLink to={toTask({ id })}>{content}</StyledLink>
           </Content>
           <DeleteButton onClick={() => dispatch(removeTask(id))}>
             <img height={15} src={deleteImage} alt="delete" />
