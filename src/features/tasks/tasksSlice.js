@@ -30,12 +30,15 @@ const tasksSlice = createSlice({
     toggleSortDirection: state => {
       state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
     },
-    fetchExampleTasks: () => { },
-    setTasks: (state, { payload: tasks }) => {
-      state.tasks = tasks;
+    fetchExampleTasks: state => {
+      state.loading = true;
     },
-    setLoading: (state, { payload: isLoading }) => {
-      state.loading = isLoading;
+    fetchExampleTasksSuccess: (state, { payload: tasks }) => {
+      state.tasks = tasks;
+      state.loading = false;
+    },
+    fetchExampleTasksError: state => {
+      state.loading = false;
     }
   }
 });
@@ -48,8 +51,8 @@ export const {
   markAllTasksAsDone,
   toggleSortDirection,
   fetchExampleTasks,
-  setTasks,
-  setLoading,
+  fetchExampleTasksSuccess,
+  fetchExampleTasksError
 } = tasksSlice.actions;
 
 export const selectTasksState = state => state.tasks;
