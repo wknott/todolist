@@ -42,9 +42,9 @@ Tasks actions:
 - create-react-app
 - Custom Hooks
 - Styled components
-- Redux
-- Redux-saga
-- React-router-dom
+- Redux (reduxjs/toolkit)
+- Redux Saga
+- React Router
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
