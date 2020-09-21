@@ -7,9 +7,14 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
   &.${activeClassName} {
     font-weight: bold;
   }
+  
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover{
+    border-bottom: 1px solid;
+  }
 `;
 
 export const List = styled.ul`

@@ -1,5 +1,5 @@
 import React from "react";
-import { toAuthor, toTasks } from "../../routes";
+import { toAuthor, toTasks } from "../routes";
 import { Item, List, StyledLink, StyledNav } from "./styled";
 
 
