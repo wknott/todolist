@@ -20,6 +20,7 @@ export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
 export const List = styled.ul`
   text-align: center;
   margin: 0;
+  padding: 0;
 `;
 
 export const Item = styled.li`
