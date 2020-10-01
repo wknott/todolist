@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const List = styled.ul`
   list-style-type: none;
-  padding: 20px;
+  padding: 0px;
   margin: 0;
 `;
 
