@@ -5,9 +5,8 @@ import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
 import { selectTasksState, removeTask, toggleTaskDone, selectTasksByQuery } from "../../tasksSlice";
 import searchQueryParamName from "../searchQueryParamName";
-import { useQueryParameter } from "../queryParamters";
+import { useQueryParameter } from "../queryParameters";
 import { toTask } from "../../../../routes";
-
 
 const TaskList = () => {
   const query = useQueryParameter(searchQueryParamName);
