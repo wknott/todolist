@@ -13,7 +13,7 @@
 
 ## Demo
 
-[To do list demo](https://wknott.github.io/to-do-list-react/)
+[To do list demo](https://wknott.github.io/todolist)
 
 ## Description
 
