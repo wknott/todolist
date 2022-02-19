@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../../../common/Header";
 import Section from "../../../common/Section";
-import Container from "../../../common/Container";
 import { useParams } from "react-router-dom";
 import { getTaskById } from "../tasksSlice";
 import { useSelector } from "react-redux";
+import { Container } from '../../../common/Container/styled';
 
 const TaskPage = () => {
   const { id } = useParams();

@@ -1,7 +1,7 @@
 import React from "react";
+import { Container } from '../../common/Container/styled';
 import Header from "../../common/Header";
 import Section from "../../common/Section";
-import Container from "../../common/Container";
 
 const AuthorPage = () => (
   <Container>
