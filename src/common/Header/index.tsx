@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Header = ({ title }) => (
+type Props = {
+  title: string,
+}
+
+const Header = ({ title }: Props) => (
   <header>
     <h1>
       {title}
