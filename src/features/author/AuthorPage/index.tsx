@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from '../../common/Container/styled';
-import Header from "../../common/Header";
-import Section from "../../common/Section";
+import { Container } from '../../../common/Container/styled';
+import Header from "../../../common/Header";
+import Section from "../../../common/Section";
 
 const AuthorPage = () => (
   <Container>
@@ -10,7 +10,7 @@ const AuthorPage = () => (
       title="Wojciech Knott"
       sectionBody={
         <>
-          Obecnie kończę studia magisterskie na kierunku Automatyka i Robotyka.
+          Obecnie pracuję jako Fullstack Web Developer.
           Programowaniem zajmuję się od wielu lat. W tym czasie poznałem podstawy kilku
           języków programowania i technologii, ale to programowanie <strong>aplikacji webowych </strong>
           sprawia mi największą frajdę!
