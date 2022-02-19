@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const activeClassName = "link-active";
+const activeclassname = "link-active";
 
-export const StyledLink = styled(NavLink).attrs(() => ({ activeClassName }))`
-  &.${activeClassName} {
+export const StyledLink = styled(NavLink).attrs(() => ({ activeclassname }))`
+  &.${activeclassname} {
     font-weight: bold;
   }
   
