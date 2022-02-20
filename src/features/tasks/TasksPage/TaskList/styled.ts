@@ -7,7 +7,11 @@ export const List = styled.ul`
   margin: 0;
 `;
 
-export const Item = styled.li`
+interface ItemProps {
+  hide?: boolean,
+};
+
+export const Item = styled.li<ItemProps>`
   padding: 5px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   display: flex;
@@ -50,7 +54,11 @@ export const DeleteButton = styled(Button)`
   }
 `;
 
-export const Content = styled.p`
+interface ContentProps {
+  done?: boolean,
+};
+
+export const Content = styled.p<ContentProps>`
   padding: 5px 10px;
   margin: 0px;
   flex-grow: 1;

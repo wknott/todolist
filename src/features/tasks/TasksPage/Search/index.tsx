@@ -8,7 +8,7 @@ const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
 
-  const onInputChange = ({ target }) => {
+  const onInputChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     replaceQueryParameter({
       key: searchQueryParamName,
       value: target.value.trim() !== "" ? target.value : undefined,

@@ -1,19 +1,19 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { ButtonsContainer } from "./styled";
-import Button from "../Button/"
+import Button from "../Button"
 import {
   selectTasksState,
   toggleHideDoneTasks,
   markAllTasksAsDone,
   toggleSortDirection,
 } from "../../tasksSlice";
+import { useAppDispatch, useAppSelector } from '../../../../hooks';
 
 const Buttons = () => {
-  const { tasks, hideDoneTasks, sortDirection } = useSelector(selectTasksState);
-  const dispatch = useDispatch();
+  const { tasks, hideDoneTasks, sortDirection } = useAppSelector(selectTasksState);
+  const dispatch = useAppDispatch();
 
-  return (
+  return (    
     <ButtonsContainer>
       {tasks.length > 0 &&
         <>
@@ -32,7 +32,7 @@ const Buttons = () => {
         </>
       }
     </ButtonsContainer >
-  )
-}
+  );
+};
 
 export default Buttons;

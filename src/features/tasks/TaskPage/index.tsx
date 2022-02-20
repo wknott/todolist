@@ -3,7 +3,7 @@ import Header from "../../../common/Header";
 import Section from "../../../common/Section";
 import { useParams } from "react-router-dom";
 import { getTaskById } from "../tasksSlice";
-import { Container } from '../../../common/Container/styled';
+import Container from '../../../common/Container';
 import { useAppSelector } from "../../../hooks";
 
 const TaskPage = () => {

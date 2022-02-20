@@ -1,21 +1,25 @@
 import React, { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import { StyledForm, Button } from "./styled";
-import Input from "../Input";
 import { addTask } from "../../tasksSlice";
+import Input from "../Input";
+import { useAppDispatch } from "../../../../hooks";
 
 const Form = () => {
   const [newTaskContent, setNewTaskContent] = useState("");
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dispatch = useAppDispatch();
 
-  const dispatch = useDispatch();
-  const focusInput = () => {
-    inputRef.current.focus();
-  }
+  const focusInput = (): void => {
+    const input = inputRef.current;
+    if(input) {
+      input.focus();
+    }
+  };
 
-  const onFormSubmit = (event) => {
+  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    
     const contentWithoutWhitespace = newTaskContent.trim();
     if (contentWithoutWhitespace) {
       dispatch(addTask({
@@ -25,6 +29,7 @@ const Form = () => {
       }));
       setNewTaskContent("");
     }
+
     focusInput();
   }
 
@@ -34,8 +39,8 @@ const Form = () => {
         value={newTaskContent}
         placeholder="Co jest do zrobienia?"
         autoFocus
-        onChange={({ target }) => setNewTaskContent(target.value)}
-        ref={inputRef}
+        onChange={({ target }: React.ChangeEvent<HTMLInputElement>) => setNewTaskContent(target.value)}
+        
       />
       <Button>Dodaj zadanie</Button>
     </StyledForm>

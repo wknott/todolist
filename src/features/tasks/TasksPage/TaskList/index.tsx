@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { List, Item, ToggleDoneButton, DeleteButton, Content, StyledLink } from "./styled";
 import doneImage from "./done.svg";
 import deleteImage from "./delete.svg";
@@ -7,14 +6,13 @@ import { selectTasksState, removeTask, toggleTaskDone, selectTasksByQuery } from
 import searchQueryParamName from "../searchQueryParamName";
 import { useQueryParameter } from "../queryParameters";
 import { toTask } from "../../../../routes";
+import { useAppDispatch, useAppSelector } from "../../../../hooks";
 
 const TaskList = () => {
   const query = useQueryParameter(searchQueryParamName);
-
-  const { hideDoneTasks, sortDirection } = useSelector(selectTasksState);
-  const tasks = useSelector(state => selectTasksByQuery(state, query));
-
-  const dispatch = useDispatch();
+  const { hideDoneTasks, sortDirection } = useAppSelector(selectTasksState);
+  const tasks = useAppSelector(state => selectTasksByQuery(state, query));
+  const dispatch = useAppDispatch();
   const sortedTasks = [...tasks].sort(
     (a, b) => sortDirection === "asc" ? b.content.localeCompare(a.content) : a.content.localeCompare(b.content)
   );
@@ -38,7 +36,7 @@ const TaskList = () => {
         </Item>
       ))}
     </List>
-  )
-}
+  );
+};
 
 export default TaskList;

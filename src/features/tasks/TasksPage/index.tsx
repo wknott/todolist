@@ -6,7 +6,7 @@ import TaskList from "./TaskList";
 import Section from "../../../common/Section";
 import ExampleTasksButton from "./ExampleTasksButton";
 import Search from "./Search";
-import { Container } from '../../../common/Container/styled';
+import Container from '../../../common/Container'
 
 const Tasks = () => (
   <Container>

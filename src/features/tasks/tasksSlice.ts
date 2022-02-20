@@ -72,7 +72,7 @@ export const selectLoading = (state: RootState): boolean => selectTasksState(sta
 
 export const getTaskById = (state: RootState, taskId: string | undefined): Task | undefined => selectTasks(state).find(({ id }) => id === taskId);
 
-export const selectTasksByQuery = (state: RootState, query: string): Array<Task> => {
+export const selectTasksByQuery = (state: RootState, query: string | null): Array<Task> => {
   const tasks = selectTasks(state);
 
   if (!query || query.trim() === "") {
