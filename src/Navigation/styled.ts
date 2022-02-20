@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-const activeclassname = "link-active";
+const activeclassname = "active";
 
 export const StyledLink = styled(NavLink).attrs(() => ({ activeclassname }))`
   &.${activeclassname} {
