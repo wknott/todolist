@@ -1,16 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
+import { Task } from "./TaskInterface";
 import { getTasksFromLocalStorage } from "./tasksLocalStorage";
+
+interface TasksState {
+  tasks: Array<Task>,
+  hideDoneTasks: boolean,
+  sortDirection: string | null,
+  loading: boolean,
+}
+
+const initialState: TasksState = {
+  tasks: getTasksFromLocalStorage(),
+  hideDoneTasks: false,
+  sortDirection: null,
+  loading: false,
+};
 
 const tasksSlice = createSlice({
   name: "tasks",
-  initialState: {
-    tasks: getTasksFromLocalStorage(),
-    hideDoneTasks: false,
-    sortDirection: null,
-    loading: false,
-  },
+  initialState,
   reducers: {
-    addTask: ({ tasks }, { payload: task }) => {
+    addTask: ({ tasks }, { payload: task }: PayloadAction<Task>) => {
       tasks.push(task);
     },
     removeTask: ({ tasks }, { payload: taskId }) => {
@@ -55,13 +66,13 @@ export const {
   fetchExampleTasksError
 } = tasksSlice.actions;
 
-export const selectTasksState = state => state.tasks;
-export const selectTasks = state => selectTasksState(state).tasks;
-export const selectLoading = state => selectTasksState(state).loading;
+export const selectTasksState = (state: RootState): TasksState => state.tasks;
+export const selectTasks = (state: RootState): Array<Task> => selectTasksState(state).tasks;
+export const selectLoading = (state: RootState): boolean => selectTasksState(state).loading;
 
-export const getTaskById = (state, taskId) => selectTasks(state).find(({ id }) => id === taskId);
+export const getTaskById = (state: RootState, taskId: string | undefined): Task | undefined => selectTasks(state).find(({ id }) => id === taskId);
 
-export const selectTasksByQuery = (state, query) => {
+export const selectTasksByQuery = (state: RootState, query: string): Array<Task> => {
   const tasks = selectTasks(state);
 
   if (!query || query.trim() === "") {

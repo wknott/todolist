@@ -8,7 +8,7 @@ import {
   selectTasks
 } from "./tasksSlice";
 
-function* fetchExampleTasksHandler() {
+function* fetchExampleTasksHandler(): any {
   try {
     yield delay(2000);
     const exampleTasks = yield call(getExampleTasks);
@@ -19,7 +19,7 @@ function* fetchExampleTasksHandler() {
   }
 }
 
-function* saveTasksInLocalStorageHandler() {
+function* saveTasksInLocalStorageHandler(): any {
   const tasks = yield select(selectTasks);
   yield call(saveTasksInLocalStorage, tasks);
 }

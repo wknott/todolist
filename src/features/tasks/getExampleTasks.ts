@@ -1,4 +1,6 @@
-export const getExampleTasks = async () => {
+import { Task } from "./TaskInterface";
+
+export const getExampleTasks = async (): Promise<Array<Task>> => {
   const response = await fetch("/to-do-list-react/exampleTasks.json");
 
   if (!response.ok) {
