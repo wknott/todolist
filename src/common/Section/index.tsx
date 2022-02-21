@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
 import { SectionBody, SectionHeader, StyledSection, Title } from "./styled";
 
-type Props = {
+type SectionProps = {
   title: String,
   extraHeaderContent?: ReactNode,
   sectionBody: ReactNode, 
 }
 
-const Section = ({ title, extraHeaderContent, sectionBody }:Props) => (
+const Section: React.FC<SectionProps> = ({ title, extraHeaderContent, sectionBody }) => (
   <StyledSection>
     <SectionHeader>
       <Title>
@@ -19,6 +19,6 @@ const Section = ({ title, extraHeaderContent, sectionBody }:Props) => (
       {sectionBody}
     </SectionBody>
   </StyledSection>
-)
+);
 
 export default Section;
