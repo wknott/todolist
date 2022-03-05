@@ -1,8 +1,7 @@
 import {
-  takeLatest, call, put, takeEvery, select, CallEffect, PutEffect,
+  takeLatest, call, put, takeEvery, select, delay,
 } from 'redux-saga/effects';
 import { getExampleTasks } from './getExampleTasks';
-import { Task } from './TaskInterface';
 import { saveTasksInLocalStorage } from './tasksLocalStorage';
 import {
   fetchExampleTasks,
@@ -11,12 +10,9 @@ import {
   selectTasks,
 } from './tasksSlice';
 
-function* fetchExampleTasksHandler():
-  Generator<CallEffect<Task[]> | CallEffect<void> | CallEffect<true> | PutEffect<{
-    payload: any;
-    type: string;
-  }>, void, unknown> {
+function* fetchExampleTasksHandler() {
   try {
+    yield delay(2000);
     const exampleTasks = yield call(getExampleTasks);
     yield put(fetchExampleTasksSuccess(exampleTasks));
   } catch (error) {
