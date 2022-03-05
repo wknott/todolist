@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const List = styled.ul`
   list-style-type: none;
@@ -9,7 +9,7 @@ export const List = styled.ul`
 
 interface ItemProps {
   hide?: boolean,
-};
+}
 
 export const Item = styled.li<ItemProps>`
   padding: 5px;
@@ -56,7 +56,7 @@ export const DeleteButton = styled(Button)`
 
 interface ContentProps {
   done?: boolean,
-};
+}
 
 export const Content = styled.p<ContentProps>`
   padding: 5px 10px;

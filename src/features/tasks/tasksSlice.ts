@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
-import { Task } from "./TaskInterface";
-import { getTasksFromLocalStorage } from "./tasksLocalStorage";
+/* eslint-disable no-param-reassign */
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../store';
+import { Task } from './TaskInterface';
+import { getTasksFromLocalStorage } from './tasksLocalStorage';
 
 interface TasksState {
   tasks: Array<Task>,
@@ -18,40 +19,40 @@ const initialState: TasksState = {
 };
 
 const tasksSlice = createSlice({
-  name: "tasks",
+  name: 'tasks',
   initialState,
   reducers: {
     addTask: ({ tasks }, { payload: task }: PayloadAction<Task>) => {
       tasks.push(task);
     },
     removeTask: ({ tasks }, { payload: taskId }) => {
-      const removeTaskIndex = tasks.findIndex(task => task.id === taskId);
+      const removeTaskIndex = tasks.findIndex((task) => task.id === taskId);
       tasks.splice(removeTaskIndex, 1);
     },
     toggleTaskDone: ({ tasks }, { payload: taskId }) => {
-      const indexToggleTaskDone = tasks.findIndex(task => task.id === taskId);
+      const indexToggleTaskDone = tasks.findIndex((task) => task.id === taskId);
       tasks[indexToggleTaskDone].done = !tasks[indexToggleTaskDone].done;
     },
-    toggleHideDoneTasks: state => {
+    toggleHideDoneTasks: (state) => {
       state.hideDoneTasks = !state.hideDoneTasks;
     },
-    markAllTasksAsDone: state => {
-      state.tasks.forEach(task => task.done = true);
+    markAllTasksAsDone: (state) => {
+      state.tasks.forEach((task) => { task.done = true; });
     },
-    toggleSortDirection: state => {
-      state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+    toggleSortDirection: (state) => {
+      state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc';
     },
-    fetchExampleTasks: state => {
+    fetchExampleTasks: (state) => {
       state.loading = true;
     },
     fetchExampleTasksSuccess: (state, { payload: tasks }) => {
       state.tasks = tasks;
       state.loading = false;
     },
-    fetchExampleTasksError: state => {
+    fetchExampleTasksError: (state) => {
       state.loading = false;
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -63,24 +64,24 @@ export const {
   toggleSortDirection,
   fetchExampleTasks,
   fetchExampleTasksSuccess,
-  fetchExampleTasksError
+  fetchExampleTasksError,
 } = tasksSlice.actions;
 
 export const selectTasksState = (state: RootState): TasksState => state.tasks;
 export const selectTasks = (state: RootState): Array<Task> => selectTasksState(state).tasks;
 export const selectLoading = (state: RootState): boolean => selectTasksState(state).loading;
 
-export const getTaskById = (state: RootState, taskId: string | undefined): Task | undefined => selectTasks(state).find(({ id }) => id === taskId);
+export const getTaskById = (state: RootState, taskId: string | undefined)
+  : Task | undefined => selectTasks(state).find(({ id }) => id === taskId);
 
 export const selectTasksByQuery = (state: RootState, query: string | null): Array<Task> => {
   const tasks = selectTasks(state);
 
-  if (!query || query.trim() === "") {
+  if (!query || query.trim() === '') {
     return tasks;
   }
 
-  return tasks.filter(({ content }) =>
-    content.toUpperCase().includes(query.trim().toUpperCase()));
-}
+  return tasks.filter(({ content }) => content.toUpperCase().includes(query.trim().toUpperCase()));
+};
 
 export default tasksSlice.reducer;

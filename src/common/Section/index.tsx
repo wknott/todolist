@@ -1,12 +1,15 @@
-import React, { ReactNode } from "react";
-import { SectionBody, SectionHeader, StyledSection, Title } from "./styled";
+import React, { ReactNode } from 'react';
+import {
+  SectionBody, SectionHeader, StyledSection, Title,
+} from './styled';
 
 type SectionProps = {
   title: String,
   extraHeaderContent?: ReactNode,
-  sectionBody: ReactNode, 
+  sectionBody: ReactNode,
 }
 
+// eslint-disable-next-line react/function-component-definition
 const Section: React.FC<SectionProps> = ({ title, extraHeaderContent, sectionBody }) => (
   <StyledSection>
     <SectionHeader>
@@ -20,5 +23,9 @@ const Section: React.FC<SectionProps> = ({ title, extraHeaderContent, sectionBod
     </SectionBody>
   </StyledSection>
 );
+
+Section.defaultProps = {
+  extraHeaderContent: null,
+};
 
 export default Section;

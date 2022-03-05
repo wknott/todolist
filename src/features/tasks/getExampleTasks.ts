@@ -1,11 +1,11 @@
-import { Task } from "./TaskInterface";
+import { Task } from './TaskInterface';
 
 export const getExampleTasks = async (): Promise<Array<Task>> => {
-  const response = await fetch("/to-do-list-react/exampleTasks.json");
+  const response = await fetch('/todolist/exampleTasks.json');
 
   if (!response.ok) {
-    new Error(response.statusText);
+    Error(response.statusText);
   }
 
-  return await response.json();
-}
+  return response.json();
+};
